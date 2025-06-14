@@ -1,22 +1,22 @@
 <template>
-  <form @submit.prevent="addEvent">
-    <div>
-      <label>Name</label>
-      <input v-model="name" required />
+  <form @submit.prevent="addEvent" class="space-y-4">
+    <div class="flex flex-col">
+      <label class="font-medium mb-1">Name</label>
+      <input v-model="name" required class="form-input rounded" />
     </div>
-    <div>
-      <label>Date</label>
-      <input type="date" v-model="date" required />
+    <div class="flex flex-col">
+      <label class="font-medium mb-1">Date</label>
+      <input type="date" v-model="date" required class="form-input rounded" />
     </div>
-    <div>
-      <label>Location</label>
-      <input v-model="location" required />
+    <div class="flex flex-col">
+      <label class="font-medium mb-1">Location</label>
+      <input v-model="location" required class="form-input rounded" />
     </div>
-    <div>
-      <label>Description</label>
-      <textarea v-model="description"></textarea>
+    <div class="flex flex-col">
+      <label class="font-medium mb-1">Description</label>
+      <textarea v-model="description" class="form-textarea rounded" />
     </div>
-    <button type="submit">Add Event</button>
+    <button type="submit" class="px-4 py-2 bg-blue-600 text-white rounded">Add Event</button>
   </form>
 </template>
 
@@ -44,19 +44,3 @@ function addEvent() {
 }
 </script>
 
-<style scoped>
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-label {
-  display: block;
-  font-weight: bold;
-}
-input,
-textarea {
-  padding: 4px;
-}
-</style>
