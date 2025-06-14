@@ -1,6 +1,6 @@
 # Event Portal Repository
 
-This repository contains a simple Vue 3 application created with Vite. The app allows you to manage a list of events.
+This repository contains a simple Vue 3 application created with Vite. The app allows you to create, edit, and delete events.
 
 ## Getting Started
 

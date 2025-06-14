@@ -8,13 +8,25 @@ const events = ref([])
 function addEvent(event) {
   events.value.push(event)
 }
+
+function updateEvent(index, updatedEvent) {
+  events.value[index] = updatedEvent
+}
+
+function removeEvent(index) {
+  events.value.splice(index, 1)
+}
 </script>
 
 <template>
   <main>
     <h1>Event Management Portal</h1>
     <EventForm @add-event="addEvent" />
-    <EventList :events="events" />
+    <EventList
+      :events="events"
+      @update-event="updateEvent"
+      @delete-event="removeEvent"
+    />
   </main>
 </template>
 

@@ -1,6 +1,6 @@
 # Event Management Portal
 
-This project was bootstrapped with Vite and Vue 3. It provides a small portal for adding and listing events.
+This project was bootstrapped with Vite and Vue 3. It provides a small portal for adding, editing, and deleting events.
 
 ## Development
 
