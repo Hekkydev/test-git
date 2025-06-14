@@ -1,25 +1,29 @@
 <template>
-  <div>
-    <h2>Events</h2>
-    <ul>
-      <li v-for="(event, index) in events" :key="index">
-        <div v-if="editIndex === index">
-          <input v-model="editEvent.name" />
-          <input type="date" v-model="editEvent.date" />
-          <input v-model="editEvent.location" />
-          <textarea v-model="editEvent.description"></textarea>
-          <button @click="saveEdit(index)">Save</button>
-          <button @click="cancelEdit">Cancel</button>
+  <div class="mt-8">
+    <h2 class="text-xl font-semibold mb-4">Events</h2>
+    <ul class="space-y-4">
+      <li v-for="(event, index) in events" :key="index" class="border rounded p-4">
+        <div v-if="editIndex === index" class="space-y-2">
+          <input v-model="editEvent.name" class="form-input rounded w-full" />
+          <input type="date" v-model="editEvent.date" class="form-input rounded w-full" />
+          <input v-model="editEvent.location" class="form-input rounded w-full" />
+          <textarea v-model="editEvent.description" class="form-textarea rounded w-full"></textarea>
+          <div class="space-x-2">
+            <button @click="saveEdit(index)" class="px-3 py-1 bg-green-600 text-white rounded">Save</button>
+            <button @click="cancelEdit" class="px-3 py-1 bg-gray-300 rounded">Cancel</button>
+          </div>
         </div>
-        <div v-else>
-          <strong>{{ event.name }}</strong> - {{ event.date }} @ {{ event.location }}
-          <p>{{ event.description }}</p>
-          <button @click="startEdit(index)">Edit</button>
-          <button @click="$emit('delete-event', index)">Delete</button>
+        <div v-else class="text-left space-y-2">
+          <div class="font-medium">{{ event.name }} - {{ event.date }} @ {{ event.location }}</div>
+          <p class="text-sm">{{ event.description }}</p>
+          <div class="space-x-2">
+            <button @click="startEdit(index)" class="px-3 py-1 bg-blue-600 text-white rounded">Edit</button>
+            <button @click="$emit('delete-event', index)" class="px-3 py-1 bg-red-600 text-white rounded">Delete</button>
+          </div>
         </div>
       </li>
     </ul>
-    <p v-if="!events.length">No events yet.</p>
+    <p v-if="!events.length" class="text-center text-gray-500">No events yet.</p>
   </div>
 </template>
 
@@ -58,14 +62,3 @@ function saveEdit(index) {
 }
 </script>
 
-<style scoped>
-ul {
-  list-style: none;
-  padding: 0;
-}
-li {
-  margin-bottom: 12px;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 8px;
-}
-</style>
